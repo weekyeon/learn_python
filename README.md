@@ -2,7 +2,7 @@
 
 [![Blog](https://img.shields.io/badge/Blog-weekyeon-blue?style=flat-square)](https://weekyeon.github.io)
 
-
+<br />
 
 # About
 
@@ -20,14 +20,14 @@
 
 현재 내가 설정한 작은 목표는 위의 네 가지 궁금증이 풀릴 때까지 파이썬을 공부하는 것이고, 큰 목표는 파이썬을 이용해서 토이 프로젝트든 아니든 산출물을 뽑아내는 것이다.
 
-
+<br />
 
 # How to study
 
 * 주말에 학원에서 배운 내용`(/lecture)`을 바탕으로 책에 있는 예제 등을 이용하여 복습한다.
 * 복습한 내용은 이 곳`(/src)`에 업데이트하고 개념 정리 등의 필기는 블로그에 업데이트한다.
 
-
+<br />
 
 # Index
 
@@ -37,17 +37,16 @@
   * 문자열 자료형
   * 리스트 자료형
 
-
+<br />
 
 # Development environment
 
-Python 3.7
+* Python 3.7
 
-Anaconda3
+* Anaconda3
+  * Jupyter Notebook
 
-* Jupyter Notebook
-
-
+<br />
 
 # Reference
 
