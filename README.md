@@ -25,17 +25,17 @@
 # How to study
 
 * 주말에 학원에서 배운 내용`(/lecture)`을 바탕으로 책에 있는 예제 등을 이용하여 복습한다.
-* 복습한 내용은 이 곳`(/src)`에 업데이트하고 개념 정리 등의 필기는 블로그에 업데이트한다.
+* 복습한 내용은 이 곳`(/src)`에 업데이트하고 개념 정리를 하면서 필기가 필요한 부분은 블로그에 업데이트한다.
 
 <br />
 
 # Index
 
-* Life is too short, You need Python!
+* [Life is too short, You need Python!](https://github.com/weekyeon/learn_python/blob/master/src/00_Life_is_too_short_You_need_Python.ipynb)
 * 자료형
-  * 숫자형
-  * 문자열 자료형
-  * 리스트 자료형
+  * [숫자형](https://github.com/weekyeon/learn_python/blob/master/src/01_Data_type_Number.ipynb)
+  * [문자열 자료형](https://github.com/weekyeon/learn_python/blob/master/src/02_Data_type_String.ipynb)
+  * [리스트 자료형](https://github.com/weekyeon/learn_python/blob/master/src/03_Data_type_list.ipynb)
 
 <br />
 
