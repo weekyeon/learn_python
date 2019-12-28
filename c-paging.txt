@@ -1,0 +1,5 @@
+https://talk.jekyllrb.com/t/use-of-pagination-on-collections-hosted-on-github-pages/38
+
+https://github.com/gynter/gynter.github.io/blob/source/_includes/paginator.html
+
+https://gist.github.com/Phlow/5613fb3f18946f577f071e2a258749a3
