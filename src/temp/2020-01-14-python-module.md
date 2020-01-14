@@ -1,22 +1,3 @@
----
-layout: post
-title: "[Python] 모듈(Module)"
-description: "python module"
-feature-img: "assets/img/pexels/computer.webp"
-author: weekyeon
-excerpt_separator: <!--more-->
-tags: [Python]
----
-
-<p align="center" style="color:gray;">파이썬 모듈에 관해 알아보기</p>
-
-* 모듈이 무엇인지
-* 모듈은 어떨 때, 왜 사용하는지
-* 파이썬에서 제공하는 모듈 적용하는 방법
-* 내가 만든 모듈 적용하는 방법
-
-<!--more-->
-
 # 모듈(Module)
 
 * 모듈은 함수나 변수, 또는 클래스를 모아 놓은 파일을 말함
@@ -78,7 +59,8 @@ import weekyeon
 # 2.
 import 모듈명 as 별칭
 
-# ex) weekyeon.py 모듈을 사용하고 싶은데 이름이 너무 길거나 다른 모듈과 충돌이 일어날 것 같아
+# ex) weekyeon.py 모듈을 사용하고 싶은데
+# 이름이 너무 길거나 다른 모듈과 충돌이 일어날 것 같아
 import weekyeon as wy
 ```
 
@@ -86,7 +68,8 @@ import weekyeon as wy
 # 3.
 from 모듈명 import [함수명 또는 변수명]
 
-# ex) weekyeon.py 모듈을 사용하고 싶은데 다 쓰고 싶진 않고 weekyeon.py 안에 있는 특정 기능(함수 또는 변수)만 사용하고 싶어
+# ex) weekyeon.py 모듈을 사용하고 싶은데 다 쓰고 싶진 않고
+# weekyeon.py 안에 있는 특정 기능(함수 또는 변수)만 사용하고 싶어
 from weekyeon import func_date
 ```
 
@@ -103,7 +86,8 @@ from weekyeon import *
 # 5.
 from 모듈명 import * as 별칭
 
-# ex) weekyeon.py 모듈을 wy라는 이름으로 사용하고 싶은데, wy라는 이름이 weekyeon.py에서 사용하고 있네?
+# ex) weekyeon.py 모듈을 wy라는 이름으로 사용하고 싶은데
+# wy라는 이름이 weekyeon.py에서 사용하고 있네?
 from weekyeon import * as wy
 ```
 
@@ -124,7 +108,97 @@ wy.func_date("인수로 던져줘야 할 데이터")
 
 <br>
 
-* ### 모듈을 사용할 수 있는
+* ### 모듈을 사용할 수 있는 디렉토리 확인
+
+  * 모듈 사용 시 기본적으로 현재 디렉토리(현재 내가 작업하고 있는 폴더의 경로)에 있는 파일이나 파이썬 라이브러리가 저장된 디렉토리에 있는 모듈만 불러올 수 있음
+  * 다시 말해서, 현재 디렉토리 또는 파이썬 라이브러리가 저장된 디렉토리 외의 위치(경로)에 있는 모듈을 사용하고 싶을 때 **sys 모듈**을 이용하여 컨트롤 가능
+    * 모듈 파일 위치를 옮기면 되는 거 아냐? 라고 생각할 수 있는데 그 누구도 회사의 공통 양식이 있는 폴더 위치를 바꾸지 않는 것과 유사한 이치.
+  * 예를 들어, 현재 내 디렉토리 위치는 `E:\weekyeon` 이고 내가 사용하고 싶은 모듈이 있는 디렉토리의 위치는 `D:\temp\python\src` 라고 가정해보자.
+
+```python
+import sys
+
+# 아래 명령어를 사용하게 되면, 현재 내가 사용하고 있는 디렉토리들의 경로가 뜸
+sys.path
+
+# 출력 결과
+'''
+['E:\\dev-study\\python\\learn_python\\src',
+ 'E:\\Anaconda3\\python37.zip',
+ 'E:\\Anaconda3\\DLLs',
+ 'E:\\Anaconda3\\lib',
+ # 아마도 ▲ 얘가 파이썬에서 제공하는 파이썬 라이브러리(모듈)가 담긴 디렉토리 위치일 듯
+ 'E:\\Anaconda3',
+ '',
+ 'E:\\Anaconda3\\lib\\site-packages',
+ 'E:\\Anaconda3\\lib\\site-packages\\win32',
+ 'E:\\Anaconda3\\lib\\site-packages\\win32\\lib',
+ 'E:\\Anaconda3\\lib\\site-packages\\Pythonwin',
+ 'E:\\Anaconda3\\lib\\site-packages\\IPython\\extensions',
+ # ▲ 얘네들은 주피터 노트북을 사용하기 위해 실행되어야 할, 또는 필요한 파일들이 있는 위치
+ 'E:\\weekyeon\\.ipython']
+ # ▲ 아마도 내 위치?ㅋㅋㅋ
+'''
+
+# 결과를 보면 알겠지만
+# D:\temp\python\src 이 경로는 어디에도 없음
+# 즉, 지금의 나는 D:\temp\python\src 이 경로에 있는 모듈을 사용하지 못함
+# 사용하려면 아래 명령어를 써서 추가해주면 됨
+sys.path.append("D:\temp\python\src")
+
+# 등록한 경로를 삭제하려면 아래 명령어 사용
+sys.path.remove("D:\temp\python\src")
+```
+
+<br>
+
+# 모듈 만들고 사용하기 A to Z
+
+* ### Step 1. 모듈 만들기
+
+  ![모듈 경로](1.png)
+
+  * 나는 지금 `E:\dev-study\python\learn_python\src\python_module` 이 경로에 `dear.py` 라는 모듈을 만들었음
+  * 모듈 만드는 순서
+    * `1` 메모장을 켠다.
+    * `2` 모듈에 있었으면 하는 함수를 작성한다.
+    * `3` 모든 파일로 저장하기를 선택하고, 모듈명을 적고 `.py`를 붙여준다.
+    * `4` 저장하기 전에 인코딩 설정을 `UTF-8`로 바꿔준다.
+
+* ### Step 2. 모듈 선언하기
+
+  * 이제 내가 만든 모듈을 실제 개발 환경(주피터 노트북)에서 선언하고 사용해보자.
+
+  ![모듈 선언](3.png)
+
+  * 모듈을 찾을 수가 없다고 한다. 때려치자!
+  * 때려치기 전에 현재 내 개발 환경이 참조하고 있는 디렉토리 리스트를 뽑아봤다.
+
+  ![image-20200114135132675](4.png)
+
+  * `E:\dev-study\python\learn_python\src\python_module` 경로가 없네? 등록해보자.
+
+  ![image-20200114135311037](5.png)
+
+  * 경로가 쓸데없이 2번이나 등록됐다. 하나는 지울게~!
+
+  ![image-20200114135452033](6.png)
+
+  * 이제 다시 내가 만든 모듈을 선언해보자.
+
+  ![image-20200114135855885](7.png)
+
+  * 오류가 안뜨는 걸 보니 뭐 잘 선언된 거겠지. 확인해보자~!
+
+  ![image-20200114135855885](8.png)
+
+  
+
+  
+
+
+
+
 
 
 
@@ -132,13 +206,3 @@ wy.func_date("인수로 던져줘야 할 데이터")
 
 <br>
 
----
-
-### Reference
-
-* [link]()
-* 박응용, 『Do it! 점프 투 파이썬』, 이지스퍼블리싱(2019)
-
-<br>
-
-<br>
